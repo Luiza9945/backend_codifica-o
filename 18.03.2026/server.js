@@ -12,13 +12,13 @@ const port = 3000
 //e se estiver funcionando , ele vai responder 'está tudo bem'.
 app.get('/bolos', bolosRouter)
 
-app.get('/', (req,res) =>{
+app.get('/', (req, res) => {
     console.log('Está tudo bem');
-    
+
 })
 
 //servidor rodando
-app.listen(port, () =>{
+app.listen(port, () => {
     console.log(`O servidor está rodando em http://localhost:${port}`);
-    
+
 })

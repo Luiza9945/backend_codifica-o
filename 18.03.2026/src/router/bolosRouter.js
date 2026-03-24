@@ -10,7 +10,7 @@ route.get("/bolos", (req, res) => {
 
 route.get('/:id', (req, res) => {
     const {id} = req.params
-    const bolos= fruitService.getFruitById(id)
+    const bolos= bolosservice.getFruitById(id)
 
     if (!bolos){
         res.status(404).json({mensagem: "Não encontrado"})
