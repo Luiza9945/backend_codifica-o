@@ -1,9 +1,0 @@
-{
-  "type": "module",
-"scripts": {
-  "dev": ""
-},
-  "dependencies": {
-    "express": "^5.2.1"
-  }
-}
