@@ -11,11 +11,17 @@ fruitsRouter.get("/", async (req, res) => {
 });
 
 // GET by id
-fruitsRouter.get("/:id", async (req, res) => {
-    const fruit = await fruitsService.getById(req.params.id);
-    res.json(fruit);
-});
 
+
+fruitsRouter.get("/:id", (req, res) => {
+    const { id } = req.params
+    const fruit = fruitService.getById(id)
+    if (!fruit) {
+        return res.status(404).json({ message: "Fruta não encontrada" })
+    }
+
+    res.json(fruit)
+})
 // POST
 fruitsRouter.post("/", async (req, res) => {
     const newFruit = await fruitsService.create(req.body.nome);
