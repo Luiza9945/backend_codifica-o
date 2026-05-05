@@ -1,21 +1,20 @@
-import express from "express";
-import { fruitsService } from "../service/fruits.service.js";
+import { Router } from 'express'
+import { fruitsService } from '../service/fruits.service.js'
 
-
-export const fruitsRouter = express.Router();
-
+const fruitsRouter = Router()
 // GET
 fruitsRouter.get("/", async (req, res) => {
-    const fruits = await fruitsServicervice.getAll();
+    const fruits = await fruitsService.getAll();
     res.json(fruits);
 });
+
 
 // GET by id
 
 
 fruitsRouter.get("/:id", (req, res) => {
     const { id } = req.params
-    const fruit = fruitService.getById(id)
+    const fruit = fruitsService.getById(id)
     if (!fruit) {
         return res.status(404).json({ message: "Fruta não encontrada" })
     }
