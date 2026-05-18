@@ -1,0 +1,12 @@
+{"type":"module",
+"scripts":{"dev":"node --watch ./server.js "},
+"dependencies":{"dotenv":"^17.4.2",
+"express":"^5.2.1"},
+"name":"18.05.2026",
+"version":"1.0.0",
+"description":"",
+"main":"index.js",
+"devDependencies":{},
+"keywords":[],
+"author":"Luiza",
+"license":"ISC"}
