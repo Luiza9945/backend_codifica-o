@@ -13,4 +13,10 @@ const pool = new Pool({
     port: process.env.DB_PORT
 })
 
+pool.on('error', (err) => {
+    console.error('Erro inesperado em cliente ocioso:', err);
+    process.exit(-1);
+  });
+  
+
 export default pool

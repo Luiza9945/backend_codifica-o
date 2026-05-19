@@ -1,5 +1,6 @@
 import express from 'express'
 import 'dotenv/config'
+import rotasFilmes from './routes/routes.js' 
 
 
 const app = express()
