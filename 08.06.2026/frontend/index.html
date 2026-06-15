@@ -1,32 +1,300 @@
 <!DOCTYPE html>
-<html lang="pt-Br">
+<html lang="pt-BR">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <script src="https://cdn.tailwindcss.com"></script>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link href="style.css" rel="stylesheet">
+
+  
+  <title>Chat fast food</title>
+  <script src="https://cdn.tailwindcss.com"></script>
 </head>
 
+<body class="bg-slate-900 h-screen flex flex-col items-center justify-center p-4">
 
-<body class="bg-gray-100 h-screen flex flex-col items-center justify-center p-4">
+  <div class="w-full max-w-md bg-slate-800 rounded-2xl shadow-2xl overflow-hidden flex flex-col h-[600px] border border-slate-700">
 
-
-  <div class="w-full max-w-md bg-white rounded-lg shadow-md overflow-hidden flex flex-col h-[500px]">
-    <div class="bg-red-500 text-white p-4">
-      <h1 class="text-lg font-bold">Chat de Entrega - Pedido #101</h1>
-      <p id="order-status" class="text-sm opacity-90">Status: Carregando...</p>
-    </div>
-
-
-    <div id="chat-messages" class="flex-1 p-4 overflow-y-auto space-y-3 bg-gray-50">
+    <!-- Cabeçalho -->
+    <div class="bg-gradient-to-r from-cyan-600 to-blue-700 text-white p-4 flex justify-between items-center shadow-lg">
+      <div>
+        <h1 class="text-base font-bold tracking-wide">
+          Chat fast food - Pedido #101
+        </h1>
+        <p id="chat-participants" class="text-xs text-cyan-100 mt-0.5">
+          Carregando participantes...
+        </p>
       </div>
 
+      <span class="bg-green-500/20 text-green-300 text-xs font-semibold px-3 py-1 rounded-full border border-green-500/30">
+        ATIVO
+      </span>
+    </div>
 
-    <div class="p-3 bg-white border-t flex gap-2">
-      <input id="msg-input" type="text" placeholder="Digite uma mensagem como 'customer'..." class="flex-1 border rounded-lg px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-red-500">
-      <button id="send-btn" class="bg-red-500 text-white px-4 py-2 rounded-lg text-sm font-semibold hover:bg-red-600">Enviar</button>
+    <!-- Botões -->
+    <div class="bg-slate-700 p-2 flex gap-2 border-b border-slate-600">
+      <button
+        id="btn-customer"
+        onclick="setRole('customer')"
+        class="flex-1 py-1.5 text-xs font-bold rounded-lg shadow-sm transition-all uppercase tracking-wider"
+      >
+        Cliente (Ana)
+      </button>
+
+      <button
+        id="btn-agent"
+        onclick="setRole('agent')"
+        class="flex-1 py-1.5 text-xs font-bold rounded-lg shadow-sm transition-all uppercase tracking-wider"
+      >
+        Atendente (Carlos)
+      </button>
+    </div>
+
+    <!-- Mensagens -->
+    <div
+      id="chat-messages"
+      class="flex-1 p-4 overflow-y-auto space-y-3 bg-slate-900 flex flex-col"
+    ></div>
+
+    <!-- Input -->
+    <div class="p-3 bg-slate-800 border-t border-slate-700 flex gap-2 items-center">
+
+      <input
+        id="msg-input"
+        type="text"
+        placeholder="Digite uma mensagem..."
+        class="flex-1 border border-slate-600 rounded-xl px-4 py-2.5 text-sm bg-slate-700 text-white placeholder-slate-400 focus:outline-none focus:ring-2 focus:ring-cyan-500"
+      >
+
+      <button
+        id="send-btn"
+        class="bg-cyan-600 text-white px-5 py-2.5 rounded-xl text-sm font-bold hover:bg-cyan-700 transition-colors shadow-lg"
+      >
+        Enviar
+      </button>
+
     </div>
   </div>
-</body>  
 
+  <script>
+    const orderId = 'order-101';
+    const API_URL = "http://localhost:4000";
 
+    const messagesContainer =
+      document.getElementById('chat-messages');
+
+    const participantsLabel =
+      document.getElementById('chat-participants');
+
+    const msgInput =
+      document.getElementById('msg-input');
+
+    const sendBtn =
+      document.getElementById('send-btn');
+
+    let currentRole = 'customer';
+
+    let localChat = {
+      customer: { name: "Ana" },
+      agent: { name: "Carlos" },
+      messages: []
+    };
+
+    function setRole(role) {
+
+      currentRole = role;
+
+      const btnCustomer =
+        document.getElementById('btn-customer');
+
+      const btnAgent =
+        document.getElementById('btn-agent');
+
+      if (role === 'customer') {
+
+        msgInput.placeholder =
+          "Digite uma mensagem como Cliente...";
+
+        btnCustomer.className =
+          "flex-1 py-1.5 text-xs font-bold rounded-lg shadow-sm transition-all uppercase tracking-wider bg-cyan-600 text-white";
+
+        btnAgent.className =
+          "flex-1 py-1.5 text-xs font-bold rounded-lg transition-all uppercase tracking-wider bg-slate-700 text-slate-300 hover:bg-slate-600";
+
+      } else {
+
+        msgInput.placeholder =
+          "Digite uma mensagem como Atendente...";
+
+        btnCustomer.className =
+          "flex-1 py-1.5 text-xs font-bold rounded-lg transition-all uppercase tracking-wider bg-slate-700 text-slate-300 hover:bg-slate-600";
+
+        btnAgent.className =
+          "flex-1 py-1.5 text-xs font-bold rounded-lg shadow-sm transition-all uppercase tracking-wider bg-blue-600 text-white";
+      }
+    }
+
+    function renderChat(chat) {
+
+      if (!chat) return;
+
+      participantsLabel.textContent =
+        `${chat.customer?.name || 'Cliente'} • ${chat.agent?.name || 'Atendente'}`;
+
+      messagesContainer.innerHTML = '';
+
+      if (Array.isArray(chat.messages)) {
+
+        chat.messages.forEach(msg => {
+
+          const div =
+            document.createElement('div');
+
+          div.className =
+            `max-w-[80%] w-fit rounded-2xl p-3 text-sm shadow-sm`;
+
+          if (msg.sender === 'customer') {
+
+            div.className +=
+              ' bg-cyan-600 text-white self-end ml-auto rounded-tr-none';
+
+          } else if (msg.sender === 'agent') {
+
+            div.className +=
+              ' bg-slate-700 text-white border border-slate-600 self-start rounded-tl-none';
+
+          } else {
+
+            div.className +=
+              ' bg-amber-500/10 text-amber-300 text-center mx-auto my-2 w-full max-w-xs block text-xs rounded-lg border border-amber-500/20';
+          }
+
+          const senderDisplay =
+            msg.sender === 'customer'
+              ? 'CLIENTE'
+              : msg.sender === 'agent'
+              ? 'ATENDENTE'
+              : 'SISTEMA';
+
+          div.innerHTML = `
+            <p class="font-bold text-[10px] tracking-wider opacity-80 mb-0.5">
+              ${senderDisplay}
+            </p>
+
+            <p class="leading-relaxed">
+              ${msg.text}
+            </p>
+
+            <span class="text-[9px] block text-right mt-1 opacity-60 font-medium">
+              ${msg.timestamp || 'Agora'}
+            </span>
+          `;
+
+          messagesContainer.appendChild(div);
+        });
+      }
+
+      messagesContainer.scrollTop =
+        messagesContainer.scrollHeight;
+    }
+
+    async function loadChat() {
+
+      try {
+
+        const res =
+          await fetch(`${API_URL}/api/chats/${orderId}`);
+
+        if (!res.ok)
+          throw new Error("Status inválido");
+
+        const chat =
+          await res.json();
+
+        if (chat && chat.messages) {
+
+          localChat = chat;
+
+          renderChat(localChat);
+        }
+
+      } catch (error) {
+
+        console.warn(
+          "Erro ao carregar da API, mantendo dados locais temporários."
+        );
+
+        renderChat(localChat);
+      }
+    }
+
+    async function sendMessage() {
+
+      const text =
+        msgInput.value.trim();
+
+      if (!text) return;
+
+      msgInput.value = '';
+
+      const now = new Date();
+
+      const timestamp =
+        `${String(now.getHours()).padStart(2, '0')}:${String(now.getMinutes()).padStart(2, '0')}`;
+
+      localChat.messages.push({
+        sender: currentRole,
+        text,
+        timestamp
+      });
+
+      renderChat(localChat);
+
+      try {
+
+        await fetch(
+          `${API_URL}/api/chats/${orderId}/messages`,
+          {
+            method: 'POST',
+            headers: {
+              'Content-Type': 'application/json'
+            },
+            body: JSON.stringify({
+              sender: currentRole,
+              text
+            })
+          }
+        );
+
+        loadChat();
+
+      } catch (error) {
+
+        console.error(
+          "Mensagem salva na interface, mas falhou ao enviar ao servidor:",
+          error
+        );
+      }
+    }
+
+    sendBtn.addEventListener(
+      'click',
+      sendMessage
+    );
+
+    msgInput.addEventListener(
+      'keypress',
+      (e) => {
+        if (e.key === 'Enter')
+          sendMessage();
+      }
+    );
+
+    setRole('customer');
+    loadChat();
+
+    setInterval(loadChat, 3000);
+  </script>
+
+</body>
 </html>
