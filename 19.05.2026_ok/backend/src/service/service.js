@@ -41,4 +41,4 @@ export const filmesService = {
 }
 
 
-export const filmesService = new filmesService()
+export const filmesservice = new filmesService()
