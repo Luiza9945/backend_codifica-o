@@ -1,4 +1,5 @@
 import express from "express";
+import { deflate } from "zlib";
 import { listaMotoristas } from "../services/motoristasService.js"
 
 const route = express.Router()
@@ -19,33 +20,34 @@ route.get("/", async (req, res) => {
     }
 })
 
-route.get("/:id", async (req , res) => {
-    try{
+route.get("/:id", async (req, res) => {
+    try {
         const motorista = await listaMotoristas.getById()
-        const {id} =req.params
+        const { id } = req.params
 
-        if(!motorista){ 
-            return  res.status(404).json({
+        if (!motorista) {
+            return res.status(404).json({
                 success: false,
                 data: null,
                 message: "Motorista não encontrado"
-            }) 
-            res.json(motorista)} 
+            })
+            res.json(motorista)
+        }
     }
     catch
-        (error) {
-            res.status(500).json({
-                success: false,
-                data: null,
-                message: "Erro ao buscar motorista"
-            })
-        }
-    })
+    (error) {
+        res.status(500).json({
+            success: false,
+            data: null,
+            message: "Erro ao buscar motorista"
+        })
+    }
+})
 
-route.post("/", async (req , res) =>{
+route.post("/", async (req, res) => {
 
-    try{
-        const  motoristaData = req.body
+    try {
+        const motoristaData = req.body
         const newMotorista = await listaMotoristas.create(motoristaData)
 
         res.status(201).json(newMotorista)
@@ -60,10 +62,83 @@ route.post("/", async (req , res) =>{
     }
 })
 
-route.put("/:id" , async (req, res) =>{
+route.put("/:id", async (req, res) => {
 
-    try{
-        const {id} = req.params
+    try {
+        const { id } = req.params
         const motoristaData = req.bory
+        const motoristaUpdate = await listaMotoristas.update(id, motoristaData)
+
+        if (!motoristaUpdate) {
+            return res.status(404).json({
+                success: false,
+                data: null,
+                message: "Motorista não encontrado"
+            })
+            res.json(motoristaUpdate)
+        }
+    }
+
+    catch (error) {
+        res.status(500).json({
+            success: false,
+            data: null,
+            message: "Erro ao atualizar motorista"
+        })
     }
 })
+
+route.patch("/:id", async (req, res) => {
+
+    try {
+        const { id } = req.params
+        const motoristaData = req.bory
+        const motoristaUpdate = await listaMotoristas.patch(id, motoristaData)
+
+        if (!motoristaUpdate) {
+            return res.status(404).json({
+                success: false,
+                data: null,
+                message: "Motorista não encontrado"
+            })
+            res.json(motoristaUpdate)
+        }
+    }
+
+    catch (error) {
+        res.status(500).json({
+            success: false,
+            data: null,
+            message: "Erro ao atualizar motorista"
+        })
+    }
+})
+
+
+route.delete("/:id", async (req, res) => {
+    try {
+        const { id } = req.params
+        const deleteMotorista = await listaMotoristas.delete(id)
+
+        if (!deleteMotorista) {
+            return res.status(404).json({
+                success: false,
+                data: null,
+                message: "Motorista não encontrado"
+            })
+
+            res.json({ success: false,
+                data: deleteMotorista,
+                message: "Motorista removido con sucesso"})
+        }
+    }
+    catch (error) {
+        res.status(500).json({
+            success: false,
+            data: null,
+            message: "Erro ao remover motorista"
+        })
+    }
+})
+
+export default route
