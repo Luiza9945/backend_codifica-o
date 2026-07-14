@@ -1,5 +1,4 @@
 import express from "express";
-import { deflate } from "zlib";
 import { listaMotoristas } from "../services/motoristasService.js"
 
 const route = express.Router()
@@ -31,8 +30,8 @@ route.get("/:id", async (req, res) => {
                 data: null,
                 message: "Motorista não encontrado"
             })
-            res.json(motorista)
         }
+        res.json(motorista)
     }
     catch
     (error) {
@@ -75,8 +74,8 @@ route.put("/:id", async (req, res) => {
                 data: null,
                 message: "Motorista não encontrado"
             })
-            res.json(motoristaUpdate)
         }
+        res.json(motoristaUpdate)
     }
 
     catch (error) {
@@ -101,8 +100,8 @@ route.patch("/:id", async (req, res) => {
                 data: null,
                 message: "Motorista não encontrado"
             })
-            res.json(motoristaUpdate)
         }
+        res.json(motoristaUpdate)
     }
 
     catch (error) {
@@ -127,10 +126,10 @@ route.delete("/:id", async (req, res) => {
                 message: "Motorista não encontrado"
             })
 
-            res.json({ success: false,
-                data: deleteMotorista,
-                message: "Motorista removido con sucesso"})
         }
+        res.json({ success: false,
+            data: deleteMotorista,
+            message: "Motorista removido con sucesso"})
     }
     catch (error) {
         res.status(500).json({
