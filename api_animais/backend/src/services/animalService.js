@@ -1,4 +1,4 @@
-import animalRepository from "../repositories/animalRepository.js"
+import {animalRepository} from "../repositories/animalRepository.js"
 
 export const animalService = {
     async getAllAnimais() {
@@ -26,15 +26,21 @@ export const animalService = {
             throw new Error("Animal não encontrado");
         }
         return await animalRepository.update(id, animalRequisicao)
-    }
+    },
 
-    async patchAnimal(id, animalRequisicao){
-         const animalExistente = await animalRepository.findById(id);
+    async patchAnimal(id, animalRequisicao) {
+        const animalExistente = await animalRepository.findById(id);
         if (!animalExistente) {
             throw new Error("Animal não encontrado");
         }
-          return await animalRepository.patch(id, animalRequisicao)
+        return await animalRepository.patch(id, animalRequisicao)
     },
 
-    async animalD
+    async deleteAnimal(id) {
+        const animalExistente = await animalRepository.findById(id);
+        if (!animalExistente) {
+            throw new Error("Animal não encontrado");
+        }
+        return await animalRepository.delete(id, animalRequisicao)
+    }
 }

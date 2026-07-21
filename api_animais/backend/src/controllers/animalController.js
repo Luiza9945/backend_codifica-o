@@ -1,4 +1,4 @@
-import animalService from "../services/animalService.js"
+import {animalService} from "../services/animalService.js"
 
 export const animalController = {
     async getAll(req, res){
@@ -39,7 +39,7 @@ export const animalController = {
             const status = error.message === "Animal não encontrado" ? 404 : 400;
             res.status(status).json({erro: error.message});
         }
-    }
+    },
 
     async  patch (req,res){
         try{ 

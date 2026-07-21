@@ -7,6 +7,11 @@ const PORT = process.env.PORT || 3000;
 app.use(express.json());
 app.use(animalRoutes);
 
+app.get('/', (req, res) => {
+  res.send('API de Animais funcionando!');
+});
+
+
 app.listen(PORT, () => {
     console.log(`Servidor do ZOO rodando na porta: ${PORT}...`)
 });
