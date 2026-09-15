@@ -1,0 +1,41 @@
+*{
+    --branco : #FFFFFFFF ;
+    --verde :  #1B3C29;
+    --amarelo :  #F6A823;
+     
+}
+
+.navbar {
+    background-color: var(--branco);
+    color: black;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    padding: 50px;
+    gap: 10px;
+
+}
+
+.busca{
+    margin: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+img{
+    border-radius: 50%;
+    height: 60px;
+    align-items: center;
+}
+.btn_verperfil{
+    background-color: var(--verde);
+    color: var(--branco);
+    border-radius: 5px;
+}
+
+.btn_login{
+    background-color: var(--verde);
+    color: var(--branco);
+    border-radius: 5px;
+}
