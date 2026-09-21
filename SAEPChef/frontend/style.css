@@ -1,8 +1,14 @@
-*{
-    --branco : #FFFFFFFF ;
-    --verde :  #1B3C29;
-    --amarelo :  #F6A823;
-     
+* {
+    --branco: #FFFFFFFF;
+    --verde: #1B3C29;
+    --amarelo: #F6A823;
+
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
 }
 
 .navbar {
@@ -11,31 +17,192 @@
     display: flex;
     align-items: center;
     justify-content: space-around;
-    padding: 50px;
     gap: 10px;
+    margin-top: 15px;
 
 }
 
-.busca{
-    margin: 20px;
+.busca {
     display: flex;
     align-items: center;
     justify-content: center;
 }
 
-img{
+.img {
     border-radius: 50%;
     height: 60px;
     align-items: center;
 }
-.btn_verperfil{
+
+#btn_verperfil {
     background-color: var(--verde);
     color: var(--branco);
     border-radius: 5px;
+    padding: 5px;
+    border: none;
+
 }
 
-.btn_login{
+#btn_login {
     background-color: var(--verde);
     color: var(--branco);
     border-radius: 5px;
+    padding: 5px;
+    border: none;
+
 }
+
+#buscar,
+.curt {
+    height: 20px !important;
+    align-items: center;
+}
+
+.b {
+    background: none;
+    border: none;
+    padding: 5px;
+}
+
+p {
+    margin: 3px;
+}
+
+.secao1 {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.card img {
+    height: 300px;
+    border-radius: 20px;
+}
+
+.mural {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+    justify-items: center;
+    margin-top: 15px;
+}
+
+.c {
+    display: flex;
+    justify-content: center;
+    flex-direction: row-reverse;
+}
+
+.conj {
+    display: flex;
+    justify-content: space-between;
+}
+
+footer {
+    background-color: #1B3C29;
+    color: #FFFFFF;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 40px;
+    margin-top: 40px;
+    font-family: sans-serif;
+}
+
+.rodape-esquerda h2 {
+    margin: 0;
+    font-size: 1.5rem;
+    font-weight: bold;
+}
+
+.rodape-centro {
+    display: flex;
+    gap: 15px;
+}
+
+.modal-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background-color: rgba(0, 0, 0, 0.6);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000; 
+    opacity: 0;
+    pointer-events: none;
+}
+
+.modal-overlay.ativo {
+    opacity: 1;
+    pointer-events: auto;
+}
+
+.modal-card {
+    background-color: #FFFFFF;
+    width: 100%;
+    max-width: 400px;
+    padding: 30px;
+    border-radius: 8px;
+}
+
+.modal-header {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+}
+
+.modal-header h2 {
+    margin: 0;
+    font-size: 1.8rem;
+    color: #333;
+    text-align: center;
+}
+
+.btn-fechar {
+    position: absolute;
+    right: -10px;
+    top: -10px;
+    background: none;
+    border: none;
+    font-size: 2rem;
+    cursor: pointer;
+    color: #000000;
+}
+
+.form-grupo {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 18px;
+}
+
+.form-grupo input {
+    padding: 10px 12px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+.modal-acoes {
+    display: flex;
+    justify-content: flex-end;
+    gap: 12px;
+    margin-top: 25px;
+}
+
+.btn-cancelar {
+    color: #1B3C29;
+    padding: 10px 20px;
+    border-radius: 4px;
+}
+
+.btn-submit {
+    background-color: #1B3C29;
+    border: none;
+    color: #FFFFFF;
+    padding: 10px 25px;
+    border-radius: 4px;
+}
+

@@ -5,16 +5,16 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="style.css">
-    <title>Document</title>
+    <title>Página inicial</title>
 </head>
 
 <body>
     <header>
         <div class="navbar">
-            <div class="secão_1">
-                <img src="img/usuario1.jpg" alt="img-usuario">
+            <div class="secao1">
+                <img src="img/usuario1.jpg" class="img" alt="img-usuario">
                 <p> @SAEPChef</p>
-                <button class="btn_verperfil">Ver Perfil <a href=""></a></button>
+                <button id="btn_verperfil">Ver Perfil <a href=""></a></button>
             </div>
 
             <div class="secão_2">
@@ -22,27 +22,249 @@
 
             </div>
             <div class="secão_3">
-                <button class="btn_login">Login <a href=""></a></button>
+                <button id="btn_login">Login <a href=""></a></button>
 
             </div>
 
         </div>
     </header>
-    <div class="busca">
-        <input class="busca"><button>buscar</button>
+    <form class="busca">
+        <input class="p" type="text" placeholder="pesquisar">
+        <button type="submit" class="b">
+            <img src="img/icones/lupa.svg" id="buscar" alt="">
+        </button>
+    </form>
+
+    <div class="mural">
+
+        <!-- Card 1 -->
+        <div class="card">
+            <div class="img-container">
+                <img src="img/receitas/receita1.jpg" alt="Receita 1">
+                <div class="tooltip">
+                    <p>Receita publicada por: @chef1</p>
+                    <p>Origem: Itália</p>
+                </div>
+            </div>
+            <div class="conj">
+                <p>Receita 1</p>
+                <div class="c">
+                    <img class="curt" src="img/icones/estrela.svg" alt="">
+                    <div class="qnt">
+                        <p>0</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Card 2 -->
+        <div class="card">
+            <div class="img-container">
+                <img src="img/receitas/receita2.jpg" alt="Receita 2">
+                <div class="tooltip">
+                    <p>Receita publicada por: @chef2</p>
+                    <p>Origem: França</p>
+                </div>
+            </div>
+            <div class="conj">
+                <p>Receita 2</p>
+                <div class="c">
+                    <img class="curt" src="img/icones/estrela.svg" alt="">
+                    <div class="qnt">
+                        <p>0</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Card 3 -->
+        <div class="card">
+            <div class="img-container">
+                <img src="img/receitas/receita3.jpg" alt="Receita 3">
+                <div class="tooltip">
+                    <p>Receita publicada por: @chef3</p>
+                    <p>Origem: Japão</p>
+                </div>
+            </div>
+            <div class="conj">
+                <p>Receita 3</p>
+                <div class="c">
+                    <img class="curt" src="img/icones/estrela.svg" alt="">
+                    <div class="qnt">
+                        <p>0</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Card 4 -->
+        <div class="card">
+            <div class="img-container">
+                <img src="img/receitas/receita4.jpg" alt="Receita 4">
+                <div class="tooltip">
+                    <p>Receita publicada por: @chef4</p>
+                    <p>Origem: Brasil</p>
+                </div>
+            </div>
+            <div class="conj">
+                <p>Receita 4</p>
+                <div class="c">
+                    <img class="curt" src="img/icones/estrela.svg" alt="">
+                    <div class="qnt">
+                        <p>0</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Card 5 -->
+        <div class="card">
+            <div class="img-container">
+                <img src="img/receitas/receita5.jpg" alt="Receita 5">
+                <div class="tooltip">
+                    <p>Receita publicada por: @chef5</p>
+                    <p>Origem: México</p>
+                </div>
+            </div>
+            <div class="conj">
+                <p>Receita 5</p>
+                <div class="c">
+                    <img class="curt" src="img/icones/estrela.svg" alt="">
+                    <div class="qnt">
+                        <p>0</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Card 6 -->
+        <div class="card">
+            <div class="img-container">
+                <img src="img/receitas/receita6.jpg" alt="Receita 6">
+                <div class="tooltip">
+                    <p>Receita publicada por: @chef6</p>
+                    <p>Origem: Portugal</p>
+                </div>
+            </div>
+            <div class="conj">
+                <p>Receita 6</p>
+                <div class="c">
+                    <img class="curt" src="img/icones/estrela.svg" alt="">
+                    <div class="qnt">
+                        <p>0</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Card 7 -->
+        <div class="card">
+            <div class="img-container">
+                <img src="img/receitas/receita7.jpg" alt="Receita 7">
+                <div class="tooltip">
+                    <p>Receita publicada por: @chef7</p>
+                    <p>Origem: Espanha</p>
+                </div>
+            </div>
+            <div class="conj">
+                <p>Receita 7</p>
+                <div class="c">
+                    <img class="curt" src="img/icones/estrela.svg" alt="">
+                    <div class="qnt">
+                        <p>0</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Card 8 -->
+        <div class="card">
+            <div class="img-container">
+                <img src="img/receitas/receita8.jpg" alt="Receita 8">
+                <div class="tooltip">
+                    <p>Receita publicada por: @chef8</p>
+                    <p>Origem: Índia</p>
+                </div>
+            </div>
+            <div class="conj">
+                <p>Receita 8</p>
+                <div class="c">
+                    <img class="curt" src="img/icones/estrela.svg" alt="">
+                    <div class="qnt">
+                        <p>0</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Card 9 -->
+        <div class="card">
+            <div class="img-container">
+                <img src="img/receitas/receita9.jpg" alt="Receita 9">
+                <div class="tooltip">
+                    <p>Receita publicada por: @chef9</p>
+                    <p>Origem: Peru</p>
+                </div>
+            </div>
+            <div class="conj">
+                <p>Receita 9</p>
+                <div class="c">
+                    <img class="curt" src="img/icones/estrela.svg" alt="">
+                    <div class="qnt">
+                        <p>0</p>
+                    </div>
+                </div>
+            </div>
+        </div>
 
     </div>
 
+    <footer>
+        <div class="rodape-esquerda">
+            <h2>SAEPChef</h2>
+        </div>
+
+        <div class="rodape-centro">
+            <img class="curt" src="img/icones/instagram.svg" alt="Instagram">
+            <img class="curt" src="img/icones/tiktok.svg" alt="TikTok">
+            <img class="curt" src="img/icones/linkedIn.svg" alt="LinkedIn">
+            <img class="curt" src="img/icones/youtube.svg" alt="YouTube">
+        </div>
 
 
+        <p>Copyright 2026-2027</p>
+    </footer>
 
+    <div id="modal-login-overlay" class="modal-overlay">
+        <div class="modal-card">
 
+            <div class="modal-header">
+                <h2>Login</h2>
+                <button id="btn-fechar-modal" class="btn-fechar">x</button>
+            </div>
 
+            <form id="form-login" novalidate>
+                <div id="erro-geral" class="mensagem-erro-global"></div>
 
+                <div class="form-grupo">
+                    <label for="login-email">E-mail</label>
+                    <input type="email" id="login-email" placeholder="Digite seu e-mail" required>
+                    <span id="erro-email" class="mensagem-erro"></span>
+                </div>
 
+                <div class="form-grupo">
+                    <label for="login-senha">Senha</label>
+                    <input type="password" id="login-senha" placeholder="Digite sua senha" required>
+                    <span id="erro-senha" class="mensagem-erro"></span>
+                </div>
 
-
-
+                <div class="modal-acoes">
+                    <button type="button" id="btn-cancelar-modal" class="btn-cancelar">Cancelar</button>
+                    <button type="submit" class="btn-submit">Login</button>
+                </div>
+            </form>
+        </div>
+    </div>
 
     <script src="script.js"></script>
 </body>
