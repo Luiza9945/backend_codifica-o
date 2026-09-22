@@ -5,6 +5,35 @@ document.addEventListener('DOMContentLoaded', () => {
     const btnFechar = document.getElementById('btn-fechar-modal');
     const btnCancelar = document.getElementById('btn-cancelar-modal');
 
+if (form) {
+    form.addEventListener('submit', (e) => {
+        e.preventDefault();
+
+        const usuario = document.getElementById('login-email').value.trim();
+        const senha = document.getElementById('login-senha').value.trim();
+        const email = "sla";
+        const senhaf = "123";
+         
+
+        if (!usuario || !senha) {
+            alert('Por favor, preencha todos os campos.');
+            return;
+        }
+
+        const usuarioEncontrado = (usuario === email & senha === senhaf)
+
+        if (usuarioEncontrado) {
+            localStorage.setItem('usuarioLogado', JSON.stringify(usuarioEncontrado));
+            alert('Login bem-sucedido!');
+            window.location.href = 'index.html';
+        } else {
+            alert('Usuário ou senha incorretos.');
+        }
+    });
+}
+
+
+
     if (btnAbrir) {
         btnAbrir.addEventListener('click', () => {
             form.reset(); 

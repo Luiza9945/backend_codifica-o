@@ -3,7 +3,7 @@ import {usuarioService} from "../services/usuarioService.js"
 export const usuarioController = {
     async getAll(req, res){
         try{ 
-            const usuarios = await usuarioService.getAllusuarios();
+            const usuarios = await usuarioService.getAllUsuarios();
             res.json(usuarios);
         }catch(error){
             res.status(404).json({erro: error.message})
