@@ -11,5 +11,18 @@ export const usuarioService = {
             throw new Error("usuario não encontrado");
         }
         return usuarioExistente
+    },
+
+    async login(email, senha) {
+        const usuario = await usuarioRepository.findByEmail(email);
+
+        if (!usuario || usuario.senha !== senha) {
+            throw new Error("E-mail ou senha inválidos");
+        }
+
+        delete usuario.senha;
+
+        return usuario;
     }
+
 }

@@ -3,7 +3,10 @@ import { usuarioController } from "../controllers/usuarioController.js"
 
 const router = Router();
 
-router.get('/usuarios', usuarioController.getAll);
-router.get('/usuario:id' , usuarioController.get)
+router.post('/login', usuarioController.login); 
 
-export default router
+router.get('/', usuarioController.getAll);
+
+router.get('/:id', usuarioController.get);
+
+export default router;
