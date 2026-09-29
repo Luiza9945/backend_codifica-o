@@ -27,7 +27,7 @@ export const usuarioController = {
 
             const usuarioAutenticado = await usuarioService.login(email, senha);
             
-            return res.status(200).json(usuarioAutenticado);
+            return res.status(200).json(usuarioAutenticado , "Você está logado");
         } catch (error) {
             if (error.message === "E-mail ou senha inválidos") {
                 return res.status(401).json({ erro: error.message }); 
