@@ -1,30 +1,26 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
     <title>Wall_my_paper</title>
-
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
 </head>
-
 <body>
 
-    <nav class="navbar navbar-expand-lg navbar-light bg-light shadow-sm">
+    <nav class="navbar navbar-expand-lg">
         <div class="container">
-
-            <a class="navbar-brand fw-bold" href="#">
+            <a id="logo" class="navbar-brand fw-bold" href="#">
                 🌸 Wall_my_paper
             </a>
-
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#menu">
                 <span class="navbar-toggler-icon"></span>
+
             </button>
 
-            <div class="collapse navbar-collapse" id="menu">
 
+            <div class="collapse navbar-collapse" id="menu">
                 <ul class="navbar-nav ms-auto">
 
                     <li class="nav-item">
@@ -47,65 +43,54 @@
 
                 </ul>
 
-                <a class="btn btn-outline-primary ms-lg-3">
+                <button id="btnAbrirLogin" class="btn ms-lg-3" data-bs-toggle="modal" data-bs-target="#modalLogin">
                     Entrar
-                </a>
+                </button>
 
-                <a class="btn btn-primary ms-lg-2">
+
+                <a id="btnCriarConta" class="btn ms-lg-2" href="#">
                     Criar conta
                 </a>
-
             </div>
-
         </div>
     </nav>
 
-
-    <section class="bg-light py-5">
-
+    <section id="banner" class="py-5">
         <div class="container text-center">
+            <h1 class="display-4 fw-bold">
+                Encontre seu próximo
+                <span>wallpaper</span>
 
-            <h3 class="display-4 fw-bold">
-                Encontre seu próximo wallpaper
-            </h3>
+            </h1>
 
-            <p class="lead text-muted">
+            <p class="lead">
                 Encontre imagens para deixar seu celular ou computador
                 com a sua cara.
             </p>
 
-            <div class="row justify-content-center mt-4">
-
+            <div id="" class="row justify-content-center mt-4">
                 <div class="col-md-8 col-lg-6">
-
                     <div class="input-group">
 
-                        <input type="text" class="form-control" placeholder="Pesquisar wallpapers...">
+                        <input id="campoPesquisa" type="text" class="form-control"
+                            placeholder="Pesquisar wallpapers...">
 
-                        <button type="submit" class="btn btn-primary">
+                        <button id="btnPesquisar" type="submit" class="btn">
                             Pesquisar
                         </button>
-
                     </div>
-
                 </div>
-
             </div>
-
         </div>
-
     </section>
 
-
     <main id="wallpapers" class="container py-5">
-
         <div class="text-center mb-5">
-
             <h2 class="fw-bold">
                 Wallpapers em destaque
             </h2>
 
-            <p class="text-muted">
+            <p>
                 Confira alguns dos wallpapers disponíveis.
             </p>
 
@@ -113,27 +98,45 @@
 
 
         <div class="row g-4">
-
             <div class="col-md-6 col-lg-4">
+               <div id="wallpaper1" class="card h-100">
 
-                <div class="card h-100 shadow-sm">
-
-                    <img src="https://i.pinimg.com/736x/dc/c3/31/dcc331f46893a3730a0278ff311686b5.jpg"
+                    <img id="imagemWallpaper1"
+                        src="https://i.pinimg.com/736x/dc/c3/31/dcc331f46893a3730a0278ff311686b5.jpg"
                         class="card-img-top" alt="Filhotes de gatos sobre fundo rosa">
 
-                    <div class="card-body">
 
-                        <h5 class="card-title">
+                    <div class="card-body">
+                        <div class="usuario">
+
+                            <span class="bolinha azul"></span>
+
+                            <span id="usuario1">
+                                Larisa@123
+                            </span>
+
+                        </div>
+
+
+                        <h5 id="tituloWallpaper1" class="card-title">
+
                             Gatinhos fofos
+
                         </h5>
 
-                        <p class="card-text">
+
+                        <p id="descricaoWallpaper1" class="card-text">
+
                             Filhotes de gatos em diferentes posições
                             sobre um fundo rosa com brilhos.
+
                         </p>
 
-                        <a  class="btn btn-primary">
+
+                        <a id="btnWallpaper1" class="btn">
+
                             Ver wallpaper
+
                         </a>
 
                     </div>
@@ -143,26 +146,48 @@
             </div>
 
 
+
             <div class="col-md-6 col-lg-4">
 
-                <div class="card h-100 shadow-sm">
+                <div id="wallpaper2" class="card h-100">
 
-                    <img src="https://i.pinimg.com/736x/11/e4/7d/11e47d4dadcc16fd32ddafc6900f740d.jpg"
+                    <img id="imagemWallpaper2"
+                        src="https://i.pinimg.com/736x/11/e4/7d/11e47d4dadcc16fd32ddafc6900f740d.jpg"
                         class="card-img-top" alt="Ilustração floral em tons de rosa">
 
+
                     <div class="card-body">
 
-                        <h5 class="card-title">
+                        <div class="usuario">
+
+                            <span class="bolinha rosa"></span>
+
+                            <span id="usuario2">
+                                Larisa@123
+                            </span>
+
+                        </div>
+
+
+                        <h5 id="tituloWallpaper2" class="card-title">
+
                             Flores rosas
+
                         </h5>
 
-                        <p class="card-text">
+
+                        <p id="descricaoWallpaper2" class="card-text">
+
                             Ilustração floral em tons de rosa,
                             com flores, folhas e detalhes dourados.
+
                         </p>
 
-                        <a class="btn btn-primary">
+
+                        <a id="btnWallpaper2" class="btn">
+
                             Ver wallpaper
+
                         </a>
 
                     </div>
@@ -170,28 +195,47 @@
                 </div>
 
             </div>
-
-
             <div class="col-md-6 col-lg-4">
 
-                <div class="card h-100 shadow-sm">
+                <div id="wallpaper3" class="card h-100">
 
-                    <img src="https://i.pinimg.com/736x/bd/64/3e/bd643e06d42c995057d5ee6528470b93.jpg"
+                    <img id="imagemWallpaper3"
+                        src="https://i.pinimg.com/736x/bd/64/3e/bd643e06d42c995057d5ee6528470b93.jpg"
                         class="card-img-top" alt="Gato siamês segurando um copo">
 
+
                     <div class="card-body">
 
-                        <h5 class="card-title">
+                        <div class="usuario">
+
+                            <span class="bolinha laranja"></span>
+
+                            <span id="usuario3">
+                                Larisa@123
+                            </span>
+
+                        </div>
+
+
+                        <h5 id="tituloWallpaper3" class="card-title">
+
                             Gato vintage
+
                         </h5>
 
-                        <p class="card-text">
+
+                        <p id="descricaoWallpaper3" class="card-text">
+
                             Gato siamês segurando um copo em uma
                             composição artística com fundo rosa.
+
                         </p>
 
-                        <a class="btn btn-primary">
+
+                        <a id="btnWallpaper3" class="btn">
+
                             Ver wallpaper
+
                         </a>
 
                     </div>
@@ -201,26 +245,48 @@
             </div>
 
 
+
             <div class="col-md-6 col-lg-4">
 
-                <div class="card h-100 shadow-sm">
+                <div id="wallpaper4" class="card h-100">
 
-                    <img src="https://i.pinimg.com/1200x/52/3b/de/523bde3619191fb580db2b06e6fe7cfc.jpg"
+                    <img id="imagemWallpaper4"
+                        src="https://i.pinimg.com/1200x/52/3b/de/523bde3619191fb580db2b06e6fe7cfc.jpg"
                         class="card-img-top" alt="Gato tricolor entre flores">
 
+
                     <div class="card-body">
 
-                        <h5 class="card-title">
+                        <div class="usuario">
+
+                            <span class="bolinha azul"></span>
+
+                            <span id="usuario4">
+                                Larisa@123
+                            </span>
+
+                        </div>
+
+
+                        <h5 id="tituloWallpaper4" class="card-title">
+
                             Gato no jardim
+
                         </h5>
 
-                        <p class="card-text">
+
+                        <p id="descricaoWallpaper4" class="card-text">
+
                             Gato tricolor descansando entre folhas,
                             flores e hortênsias.
+
                         </p>
 
-                        <a class="btn btn-primary">
+
+                        <a id="btnWallpaper4" class="btn">
+
                             Ver wallpaper
+
                         </a>
 
                     </div>
@@ -230,26 +296,48 @@
             </div>
 
 
+
             <div class="col-md-6 col-lg-4">
 
-                <div class="card h-100 shadow-sm">
+                <div id="wallpaper5" class="card h-100">
 
-                    <img src="https://i.pinimg.com/1200x/62/20/24/622024330c2f3ad4816786bae1787067.jpg"
+                    <img id="imagemWallpaper5"
+                        src="https://i.pinimg.com/1200x/62/20/24/622024330c2f3ad4816786bae1787067.jpg"
                         class="card-img-top" alt="Lago com cachoeira e vegetação">
 
+
                     <div class="card-body">
 
-                        <h5 class="card-title">
+                        <div class="usuario">
+
+                            <span class="bolinha marrom"></span>
+
+                            <span id="usuario5">
+                                Larisa@123
+                            </span>
+
+                        </div>
+
+
+                        <h5 id="tituloWallpaper5" class="card-title">
+
                             Lago na natureza
+
                         </h5>
 
-                        <p class="card-text">
+
+                        <p id="descricaoWallpaper5" class="card-text">
+
                             Paisagem natural com lago verde,
                             cachoeira e vegetação ao redor.
+
                         </p>
 
-                        <a class="btn btn-primary">
+
+                        <a id="btnWallpaper5" class="btn">
+
                             Ver wallpaper
+
                         </a>
 
                     </div>
@@ -259,26 +347,48 @@
             </div>
 
 
+
             <div class="col-md-6 col-lg-4">
 
-                <div class="card h-100 shadow-sm">
+                <div id="wallpaper6" class="card h-100">
 
-                    <img src="https://i.pinimg.com/1200x/6a/b2/cb/6ab2cbc74e096674cbe9a56f4ff6f25b.jpg"
+                    <img id="imagemWallpaper6"
+                        src="https://i.pinimg.com/1200x/6a/b2/cb/6ab2cbc74e096674cbe9a56f4ff6f25b.jpg"
                         class="card-img-top" alt="Lago ao entardecer">
+
 
                     <div class="card-body">
 
-                        <h5 class="card-title">
+                        <div class="usuario">
+
+                            <span class="bolinha laranja"></span>
+
+                            <span id="usuario6">
+                                Larisa@123
+                            </span>
+
+                        </div>
+
+
+                        <h5 id="tituloWallpaper6" class="card-title">
+
                             Entardecer
+
                         </h5>
 
-                        <p class="card-text">
+
+                        <p id="descricaoWallpaper6" class="card-text">
+
                             Lago ao entardecer cercado por árvores,
                             com céu alaranjado e montanhas ao fundo.
+
                         </p>
 
-                        <a class="btn btn-primary">
+
+                        <a id="btnWallpaper6" class="btn">
+
                             Ver wallpaper
+
                         </a>
 
                     </div>
@@ -289,28 +399,107 @@
 
         </div>
 
-
     </main>
 
 
-    <footer class="bg-dark text-white text-center py-4">
 
-        <div class="container">
 
-            <h5>🌸 Wall_my_paper </h5>
+    <div id="modalLogin" class="modal fade" tabindex="-1" aria-labelledby="tituloLogin" aria-hidden="true">
+
+        <div class="modal-dialog modal-dialog-centered">
+
+            <div class="modal-content">
+
+
+                <div class="modal-header border-0">
+
+                    <h2 id="tituloLogin" class="modal-title fw-bold">
+
+                        Login
+
+                    </h2>
+
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Fechar">
+                    </button>
+
+                </div>
+
+
+                <div class="modal-body px-4 px-md-5 pb-5">
+
+                    <form id="formLogin">
+
+
+                        <div class="mb-3">
+
+                            <label for="emailLogin" class="form-label fw-bold">
+
+                                E-mail
+
+                            </label>
+
+                            <input id="emailLogin" name="email" type="email"
+                                class="form-control form-control-lg rounded-pill" placeholder="Digite seu e-mail">
+
+                        </div>
+
+
+                        <div class="mb-4">
+
+                            <label for="senhaLogin" class="form-label fw-bold">
+
+                                Senha
+
+                            </label>
+
+                            <input id="senhaLogin" name="senha" type="password"
+                                class="form-control form-control-lg rounded-pill" placeholder="Digite sua senha">
+
+                        </div>
+
+
+                        <button id="btnEntrar" type="submit" class="btn btn-lg w-100 rounded-pill fw-bold">
+
+                            Entrar
+
+                        </button>
+
+                    </form>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+
+   
+
+    <footer id="sobre" class="py-4">
+
+        <div class="container text-center">
+
+            <h5 class="fw-bold">
+                🌸 Wall_my_paper
+            </h5>
 
             <p class="mb-1">
                 Seu espaço para encontrar wallpapers.
             </p>
 
             <small>
-                © 2026 Walli
+                © 2026 Wall_my_paper
             </small>
 
         </div>
 
     </footer>
 
+
+ <script src="script.js">
+ </script>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js">
     </script>

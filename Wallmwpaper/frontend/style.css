@@ -1,0 +1,237 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+:root {
+    --rosa: #C93660;
+    --fundo: #F6FFEA;
+    --azul: #62C4DA;
+    --marrom: #482D2A;
+    --laranja: #FA855A;
+}
+
+body {
+    background-color: var(--fundo);
+    color: var(--marrom);
+}
+
+
+.navbar {
+    background-color: var(--fundo);
+    padding: 18px 0;
+}
+
+#logo {
+    color: var(--marrom);
+    font-family: Georgia, serif;
+    font-size: 25px;
+}
+
+.nav-link {
+    color: var(--marrom) !important;
+}
+
+.nav-link.active {
+    color: var(--rosa) !important;
+}
+
+#btnAbrirLogin {
+    background-color: transparent;
+    border: 2px solid var(--rosa);
+    color: var(--rosa);
+    border-radius: 25px;
+    font-weight: bold;
+}
+
+#btnAbrirLogin:hover {
+    background-color: var(--rosa);
+    color: white;
+}
+
+#btnCriarConta {
+    background-color: var(--rosa);
+    color: white;
+    border-radius: 25px;
+    font-weight: bold;
+}
+
+#btnCriarConta:hover {
+    background-color: var(--rosa);
+    color: white;
+}
+
+
+
+
+#banner {
+    background-color: var(--fundo);
+}
+
+#banner h1 {
+    color: var(--marrom);
+    font-family: Georgia, serif;
+}
+
+#banner h1 span {
+    color: var(--rosa);
+}
+
+#banner p {
+    color: var(--marrom) !important;
+}
+
+
+#campoPesquisa {
+    background-color: var(--fundo);
+    border: 3px solid var(--rosa);
+    color: var(--marrom);
+}
+
+#campoPesquisa:focus {
+    background-color: var(--fundo);
+    border-color: var(--rosa);
+    box-shadow: none;
+}
+
+#btnPesquisar {
+    background-color: var(--rosa);
+    color: white;
+    border-color: var(--rosa);
+    border-radius: 0 25px 25px 0;
+    font-weight: bold;
+}
+
+#btnPesquisar:hover {
+    background-color: var(--rosa);
+    color: white;
+}
+
+#wallpapers h2 {
+    color: var(--marrom);
+    font-family: Georgia, serif;
+}
+
+#wallpapers .text-center p {
+    color: var(--marrom);
+}
+
+
+.card {
+    background-color: var(--fundo);
+    border: none;
+    border-radius: 8px;
+    overflow: hidden;
+}
+
+.card-img-top {
+    height: 220px;
+    object-fit: cover;
+}
+
+.card-body {
+    padding: 15px 5px;
+}
+
+.card-title {
+    color: var(--marrom);
+    font-family: Georgia, serif;
+    font-weight: bold;
+}
+
+.card-text {
+    color: var(--marrom);
+    font-size: 14px;
+}
+
+
+.usuario {
+    display: flex;
+    align-items: center;
+    gap: 7px;
+
+    margin-bottom: 8px;
+
+    color: var(--marrom);
+    font-size: 12px;
+}
+
+.bolinha {
+    width: 13px;
+    height: 13px;
+    display: inline-block;
+}
+
+.bolinha.azul {
+    background-color: var(--azul);
+}
+
+.bolinha.rosa {
+    background-color: var(--rosa);
+}
+
+.bolinha.laranja {
+    background-color: var(--laranja);
+}
+
+.bolinha.marrom {
+    background-color: var(--marrom);
+}
+
+
+
+.card .btn {
+    background-color: var(--rosa);
+    color: white;
+
+    border: none;
+    border-radius: 20px;
+
+    font-weight: bold;
+}
+
+.card .btn:hover {
+    background-color: var(--rosa);
+    color: white;
+}
+
+
+
+#modalLogin .modal-content {
+    background-color: var(--fundo);
+    border: none;
+    border-radius: 15px;
+}
+
+#tituloLogin {
+    color: var(--marrom);
+    font-family: Georgia, serif;
+}
+
+#modalLogin .form-control {
+    background-color: var(--fundo);
+    border: 4px solid var(--azul);
+    color: var(--marrom);
+}
+
+#modalLogin .form-control:focus {
+    background-color: var(--fundo);
+    border-color: var(--azul);
+    box-shadow: none;
+}
+
+#btnEntrar {
+    background-color: var(--rosa);
+    color: white;
+    border: none;
+}
+
+#btnEntrar:hover {
+    background-color: var(--rosa);
+    color: white;
+}
+
+footer {
+    background-color: var(--marrom);
+    color: white;
+}

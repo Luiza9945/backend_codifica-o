@@ -2,22 +2,21 @@ import express from 'express'
 import cors from 'cors'
 import 'dotenv/config'
 import usuarioRoutes from "../routes/usuarioRoute.js"
+import wallpaperRoute from "../routes/wallpaperRoute.js"
 
 const app = express()
-const PORT = process.env.PORT || 3013;
+const PORT = process.env.PORT || 3013
 
-app.use(cors()); 
-
+app.use(cors())
 app.use(express.json())
-app.use(usuarioRoutes);
 
 app.use("/usuarios", usuarioRoutes)
-
+app.use("/wallpapers", wallpaperRoute)
 
 app.get('/', (req, res) => {
-  res.send('Hello World!')
+    res.send('Hello World!')
 })
 
 app.listen(PORT, () => {
-  console.log(`Servidor ON em http://localhost:${PORT}`)
+    console.log(`Servidor ON em http://localhost:${PORT}`)
 })
